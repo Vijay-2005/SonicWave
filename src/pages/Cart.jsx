@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../contexts/CartContext';
-import { FaTrash, FaPlus, FaMinus, FaArrowLeft, FaCreditCard } from 'react-icons/fa';
+// Replace react-icons/fa imports with Font Awesome classes
 import '../styles/Cart.css';
 
 const Cart = () => {
@@ -17,7 +17,7 @@ const Cart = () => {
             <h2>Your cart is empty</h2>
             <p>Looks like you haven't added any products to your cart yet.</p>
             <Link to="/products" className="btn-primary">
-              <FaArrowLeft /> Continue Shopping
+              <i className="fas fa-arrow-left"></i> Continue Shopping
             </Link>
           </div>
         </div>
@@ -58,14 +58,14 @@ const Cart = () => {
                     onClick={() => updateQuantity(item.id, item.quantity - 1)}
                     disabled={item.quantity <= 1}
                   >
-                    <FaMinus />
+                    <i className="fas fa-minus"></i>
                   </button>
                   <span className="qty-value">{item.quantity}</span>
                   <button 
                     className="qty-btn increase"
                     onClick={() => updateQuantity(item.id, item.quantity + 1)}
                   >
-                    <FaPlus />
+                    <i className="fas fa-plus"></i>
                   </button>
                 </div>
                 
@@ -78,7 +78,7 @@ const Cart = () => {
                     className="btn-remove" 
                     onClick={() => removeFromCart(item.id)}
                   >
-                    <FaTrash />
+                    <i className="fas fa-trash"></i>
                   </button>
                 </div>
               </div>
@@ -110,11 +110,11 @@ const Cart = () => {
             </div>
             
             <Link to="/checkout" className="btn-checkout">
-              <FaCreditCard /> Proceed to Checkout
+              <i className="fas fa-credit-card"></i> Proceed to Checkout
             </Link>
             
             <Link to="/products" className="btn-continue-shopping">
-              <FaArrowLeft /> Continue Shopping
+              <i className="fas fa-arrow-left"></i> Continue Shopping
             </Link>
             
             <button className="btn-clear-cart" onClick={clearCart}>

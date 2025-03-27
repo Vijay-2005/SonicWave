@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaShoppingCart, FaStar } from 'react-icons/fa';
+// Replace react-icons/fa imports with Font Awesome classes
+// The fontawesome CSS is already included in your public/index.html
 
 const ProductGrid = ({ products, onAddToCart }) => {
   return (
-    <div className="product-grid">
+    <div className="products-grid">
       {products.length > 0 ? (
         products.map(product => (
           <div key={product.id} className="product-card">
@@ -22,7 +23,7 @@ const ProductGrid = ({ products, onAddToCart }) => {
               <div className="product-meta">
                 <span className="product-category">{product.category}</span>
                 <div className="product-rating">
-                  <FaStar className="star-icon" />
+                  <i className="fas fa-star star-icon"></i>
                   <span>{product.rating}</span>
                 </div>
               </div>
@@ -39,7 +40,7 @@ const ProductGrid = ({ products, onAddToCart }) => {
                   className="btn-add-to-cart"
                   onClick={() => onAddToCart(product)}
                 >
-                  <FaShoppingCart /> Add to Cart
+                  <i className="fas fa-shopping-cart"></i> Add to Cart
                 </button>
                 <Link to={`/product/${product.id}`} className="btn-view-details">
                   View Details
